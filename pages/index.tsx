@@ -11,7 +11,7 @@ const index = ({ data }) => {
       <h5 className="my-3 font-medium">
         Accomplished Front End Web Developer with 7 years designing online assets to attract maximum engagement and conversions from ad placements.Expertise in developing user interfaces with HTML, CSS and JavaScript and solid understanding. Proven team player when working with internal cross-functional departments. Thrive in hands-on, actionoriented culture by working well under pressure and adapting to change quickly.
       </h5>
-      <div className="flex-grow p-4 mt-5 bg-gray-400 dark:bg-dark-100" style={{marginLeft: '-1.5rem', marginRight: '-1.5rem'}}>
+      {/* <div className="flex-grow p-4 mt-5 bg-gray-400 dark:bg-dark-100" style={{marginLeft: '-1.5rem', marginRight: '-1.5rem'}}>
         <h6 className="my-3 text-xl font-medium">Who AM I</h6>
         <motion.div className="grid gap-6 lg:grid-cols-2" variants={stagger} initial="initial" animate="animate" >
         {services.map((service) => (
@@ -24,7 +24,7 @@ const index = ({ data }) => {
             </motion.div>
           ))}
         </motion.div>
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -32,7 +32,7 @@ const index = ({ data }) => {
 export default index;
 
 export const getServerSideProps = async (context: GetServerSideProps) => {
-  const response = await fetch(`${window.location.origin}/api/services`);
+  const response = await fetch(`http://localhost:3000/api/services`);
   const res = await response.json();
 
   return {
