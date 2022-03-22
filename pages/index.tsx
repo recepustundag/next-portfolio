@@ -13,16 +13,17 @@ const index = ({ data }) => {
       </h5>
       <div className="flex-grow p-4 mt-5 bg-gray-400 dark:bg-dark-100" style={{marginLeft: '-1.5rem', marginRight: '-1.5rem'}}>
         <h6 className="my-3 text-xl font-medium">Who AM I</h6>
-        <div className="grid gap-6 lg:grid-cols-2" variants={stagger} initial="initial" animate="animate" >
+        <motion.div className="grid gap-6 lg:grid-cols-2" variants={stagger} initial="initial" animate="animate" >
         {services.map((service) => (
-            <div
+            <motion.div
+              variants={fadeInUp}
               className="col-span-2 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 md:col-span-1 "
               key={service.title}
             >
               <ServiceCard service={service} />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
@@ -31,7 +32,7 @@ const index = ({ data }) => {
 export default index;
 
 export const getServerSideProps = async (context: GetServerSideProps) => {
-  const response = await fetch('http://localhost:3000/api/services');
+  const response = await fetch(`${window.location.origin}/api/services`);
   const res = await response.json();
 
   return {
